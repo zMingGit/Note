@@ -1,0 +1,1 @@
+vmware fusion import vmdsk file, need select `create a custom virtual machine` ,then select your vmdk file system, and then select file to use .
