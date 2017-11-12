@@ -33,8 +33,8 @@ vi config.json
     "local_address":"127.0.0.1",
     "local_port":1080,
     "port_password":{
-        "2788":{"protocol":"auth_aes128_sha1", "password":"zm7788", "obfs":"tls1.2_ticket_auth_compatible", "obfs_param":""},
-        "3789":{"protocol":"auth_aes128_sha1", "password":"7789", "obfs":"tls1.2_ticket_auth_compatible", "obfs_param":""},
+        "2788":{"protocol":"auth_aes128_sha1", "password":"password", "obfs":"tls1.2_ticket_auth_compatible", "obfs_param":""},
+        "3789":{"protocol":"auth_aes128_sha1", "password":"qasd", "obfs":"tls1.2_ticket_auth_compatible", "obfs_param":""},
         "4888":{"protocol":"origin", "password":"8888"},
         "5889":{"protocol":"origin", "password":"8889"}
     },
