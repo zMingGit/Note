@@ -1,9 +1,9 @@
 ## test custom analysis
 ```
-curl -XPOST '172.16.3.178:9200/repofiles/_analyze?pretty' -H 'Content-Type: application/json' -d'
+curl -XPOST '127.0.0.1:9200/repofiles/_analyze?pretty' -H 'Content-Type: application/json' -d'
 {
-  "analyzer": "seafile_file_name_ngram_analyzer",
-  "text": "123"
+  "analyzer": "ik",
+  "text": "qq.jpg"
 }
 '
 ```

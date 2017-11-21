@@ -50,7 +50,7 @@ dotnet run
 
 
 
-%3rDM21].j#_V?S*
+
 
  python /usr/local/shadowsocks/server.py -c /etc/shadowsocks.json -d start
 

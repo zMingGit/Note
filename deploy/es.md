@@ -1,6 +1,6 @@
 # Requirement
 
-java-jdk8
+java-jdk
 
 
 # Deploy
