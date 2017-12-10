@@ -17,6 +17,21 @@ yum install gtk3-devel
 yum install fftw-devel fftw-doc
 ```
 
+if u get erorr like  `yum conflicts`
+u can use `yum shell` command.
+
+like this:
+
+```
+yum shell
+
+remove some-packpage
+install some-packpage
+
+run
+```
+
+
 and then you can use `sudo ./autogen.sh` command. It will tell you what to install.
 
 ps: may u will get error like sqlite db clock. u can delete all yum process, it work.
