@@ -1,0 +1,1 @@
+如果要在script下添加脚本文件，需要修改`build/build-pro.py`文件，添加对应的拷贝代码.

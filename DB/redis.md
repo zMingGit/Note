@@ -1,0 +1,2 @@
+redis的命令执行自身就会有retry操作，只要连接的时候指定retry_on_timeout为True即可。
+

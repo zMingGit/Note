@@ -1,0 +1,1 @@
+分享给public repo或者爱public repo中创建资料库的操作必须关系seafile.config配置中的多租户和cloud_mode
