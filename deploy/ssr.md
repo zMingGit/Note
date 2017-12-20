@@ -11,6 +11,10 @@ pip install requests
 `
 centos 7
 `
+```
+systemctl enable firewalld
+systemctl start firewalld
+```
 
 ```
 firewall-cmd --permanent --zone=public --add-port=7788/tcp
