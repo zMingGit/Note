@@ -97,7 +97,7 @@ LVM的设计本身就是可扩展的
     ```
     sudo lvextend -L+20G /dev/ubuntu-vg/root
     ```
-5.  resize2fs ｀文件系统` 使扩容生效
+5.  resize2fs ｀文件系统` 使扩容生效    
 
 
 文本设计的概念有:  
