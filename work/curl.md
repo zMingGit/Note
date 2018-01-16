@@ -31,3 +31,28 @@ curl -X PUT -d "email=q@q.com&login_id="  -H "Authorization: Token 6394c2ebb70aa
 ### curl get multi parameter
 
     curl -sS  "www.baidu.com/?q=2&b=2"
+    
+
+
+
+## elastic search api
+### 查询结果
+curl -XGET '127.0.0.1:9200/repofiles/_search?q=foobar'
+### 查询映射
+curl -XGET  '127.0.0.1:9200/repofiles/_mapping/file'
+### 使用某个特定的分析器分析文本s
+curl -XGET '127.0.0.1:9200/repofiles/_analyze?pretty' -H 'Content-Type: application/json' -d'
+{
+    "text": "foo2",
+    "analyzer": "seafile_file_name_ngram_analyzer"
+}
+'
+
+### 某个字段分析特定文本
+curl -XGET '127.0.0.1:9200/repofiles/_analyze?pretty' -H 'Content-Type: application/json' -d'
+{
+  "field": "filename",
+  "text": "/foo2.txt" 
+}
+'
+
