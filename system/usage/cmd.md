@@ -24,3 +24,21 @@ cat /proc/{{process pid}}/status
 
 或者 `ps hH p {{pid}} | wc -l`
 
+### 对于查询到的文件执行操作
+```
+find . -name '*.pyc' -exec rm -rf {} \;
+```
+
+### 查看内核日志
+
+#### ubuntu:
+
+```
+cat /var/log/kern.log
+```
+
+#### centos:
+
+```
+dmesg -T | grep -E -i -B100 'killed process'
+```

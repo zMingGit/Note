@@ -74,5 +74,3 @@ curl -d "repo_id=08320006-46d8-4128-8f16-fff48470b752" -H "Authorization: Token 
 
 share_admin Library -> shared_repos
 
-
-

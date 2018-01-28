@@ -1,0 +1,29 @@
+i got error when install librados-dev
+```
+The following packages have unmet dependencies:
+ librados-dev : Depends: librados2 (= 10.2.10-1trusty) but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+```
+then i got error when install librados2
+
+```
+The following packages have unmet dependencies:
+ librados2 : Depends: libboost-iostreams1.54.0 but it is not installable
+             Depends: libboost-random1.54.0 but it is not installable
+             Depends: libboost-system1.54.0 but it is not installable
+             Depends: libboost-thread1.54.0 but it is not installable
+E: Unable to correct problems, you have held broken packages.
+```
+
+
+add follow to `/etc/apt/sources.list`
+```
+  deb http://security.ubuntu.com/ubuntu trusty-security main    
+  deb http://cz.archive.ubuntu.com/ubuntu trusty main    
+  deb http://cz.archive.ubuntu.com/ubuntu trusty main universe 
+```
+sudo apt-get update
+sudo apt-get install libboost1.54-dev ## solve librados2
+sudo apt-get install libboost-random1.54.0
+sudo apt-get install librados2 ## solve librados-dev
+sudo apt-get -f install librados-dev

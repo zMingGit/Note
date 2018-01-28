@@ -1,6 +1,6 @@
 curl -X PUT -d "email=admin@admin.com&login_id="  -H "Authorization: Token aced9fb76a7a1a4d6e232fceebebcf2b8aab6ff4" http://172.16.3.165:8000/api/v2.1/admin/users/admin@admin.com/
 
-curl -d "username=admin@admin.com&password=admin" http://172.16.3.128:8000/api2/auth-token/
+curl -d "username=foo@foo.com&password=foo" http://127.0.0.1:8000/api2/auth-token/
 
 c020216a3e640d3958ca96e590ff2360db6b9934
 
@@ -56,3 +56,20 @@ curl -XGET '127.0.0.1:9200/repofiles/_analyze?pretty' -H 'Content-Type: applicat
 }
 '
 
+curl -XGET "http://192.168.1.173:8000/api2/search/?q=test" -H 'Authorization: Token fe8993887fd18074ffbe0674a1d8d16b569bd274' -H 'Accept: application/json; charset=utf-8; indent=4' 
+
+
+### safes查询
+
+curl -XGET '127.0.0.1:9200/repofiles/files/_search?pretty' -H 'Content-Type: application/json' -d'
+{"query": 
+	{"bool": 
+		{"minimum_should_match": 1, 
+		 "should": [
+		   {"match":{"filename":{"minimum_should_match": "-25%", "query": "123"}}}, 
+		   {"match":{"content":{"minimum_should_match": "-25%", "query": "123"}}}, 
+		   {"match":{"filename.ngram":{"minimum_should_match": "80%", "query": "123"}}}
+	   ]
+   }
+	}
+}'
