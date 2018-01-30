@@ -1,6 +1,11 @@
-### 功能
+
+## 需求
 系统管理员在系统管理的资料库选项中，可以用每个资料库后面的共享图标将资料库共享给其他用户或者组。
 
+## 设计
+使用已有的ExtraSharePermission和ExtraGroupSharePermission表，将共享关系记录下来，用于覆盖底层的r、rw权限，实现admin权限的增加.
+
+## 改动
 ### API修改
 - api-v2.1-admin-shares 增加admin权限对应的代码
 - api2-dir-shared-items 共享通用函数修改后影响对应的代码
