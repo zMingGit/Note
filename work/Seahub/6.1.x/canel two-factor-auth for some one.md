@@ -1,8 +1,0 @@
-
-
-删除two_factor_auth的时候，居然在管理员角度直接把自己的request.user传递给devices_for_user获得devices，再去遍历删除。
-
-
-傻雕才反应过来，因为是删除某一个点击进去的用户，而不是某个登陆的用户，这个功能是站在管理员登录的角度上。所以应该把email传递过来，然后查找到用户，再去传递给devices_for_user获得devices，再去遍历删除。
-
-
