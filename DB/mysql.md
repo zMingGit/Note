@@ -5,12 +5,12 @@ sudo /etc/init.d/mysql start|stop
 
 ## Monitor
 
-mysql配置文件`my.cnf`中添加配置
+mysql配置文件`mysqld.cnf`中`[mysqld]`下取消注释
 
 ```
 general_log = 1
 
-log=/var/log/mysqld_query.log
+general_log_file=/tmp/mysql-query.log
 ```
 
 或者在命令里使用:
@@ -18,7 +18,7 @@ log=/var/log/mysqld_query.log
 SET GLOBAL general_log = 'ON';
 SET GLOBAL general_log_file = '/var/log/mysql.log';
 ```
-文件需要提前创建，而且保证访问权限。
+千万保证文件夹和文件权限，直接放在`/tmp`目录下就没问题
 
 ### 日志文件权限
 1. 保证linux中拥有权限

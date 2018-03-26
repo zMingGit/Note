@@ -19,7 +19,6 @@ systemctl start firewalld
 ```
 firewall-cmd --permanent --zone=public --add-port=7788/tcp
 firewall-cmd --permanent --zone=public --add-port=7788/udp
-
 firewall-cmd --reload
 ```
 
