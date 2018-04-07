@@ -2,7 +2,7 @@
 
 ## 背景
 
-一个正常的周末，在写一个Chrome的插件，想做一个可以将本地书签保存到服务器上，以及可以导入服务器的书签到本地， 在退出google账号重新登录的时候，发现cookie都没了，Trello上不去，而且密码忘记了~~(绝对是那个密码，我不会错的)~~. 这种小事天天见， 邮件找回密码就是了, 就在我信心满满看到Trello提示的希望正在路上的时候，我觉得没啥问题。 可是等了几分钟，没！有！邮！件！ 随后无线请求发送邮件，结果也是预料中的没收到， 折腾了一下， 邮箱服务没问题，就是trello的邮件收不到，发了个support就不管了。 但是这个引发了我的想法，自己记密码，忘记不说，还来以为自己是对的~~(我没错，我不认，绝对不可能是我错了)~~. 
+一个正常的周末，在写一个Chrome的插件，想做一个可以将本地书签保存到服务器上，以及可以导入服务器的书签到本地， 在退出google账号重新登录的时候，发现cookie都没了，Trello上不去，而且密码忘记了 ~~(绝对是那个密码，我不会错的)~~ . 这种小事天天见， 邮件找回密码就是了, 就在我信心满满看到Trello提示的希望正在路上的时候，我觉得没啥问题。 可是等了几分钟，没！有！邮！件！ 随后无线请求发送邮件，结果也是预料中的没收到， 折腾了一下， 邮箱服务没问题，就是trello的邮件收不到，发了个support就不管了。 但是这个引发了我的想法，自己记密码，忘记不说，还来以为自己是对的 ~~(我没错，我不认，绝对不可能是我错了)~~. 
 
 ## 挑选
 
@@ -14,7 +14,7 @@
 
 ## 打开任督二脉
 
-```
+```bash
 systemctl start firewalld
 firewall-cmd --get-active-zones
 firewall-cmd --zone=public --add-port=80/tcp --permanent
@@ -34,7 +34,7 @@ firewall-cmd --reload
 
 然后在服务器上安装Nginx、 Openssl、 htpasswd.
 
-```
+```bash
 yum update
 yum install nginx openssl
 # 安装keepass
@@ -50,23 +50,21 @@ yum install httpd-tools-2.4.6-67.el7.centos.6.x86_64
 
 首先用htpasswd生成webdav的访问账号密码.
 
-```
-	#在/etc/nginx/htpasswd路径生成账号密码,按照提示输入密码即可
-
-	sudo htpasswd -c /etc/nginx/htpasswd superadmin
+```bash
+#在/etc/nginx/htpasswd路径生成账号密码,按照提示输入密码即可
+sudo htpasswd -c /etc/nginx/htpasswd superadmin
 ```
 
 使用Openssl生成自注册证书, 让ngixn用https的方式提供webdav服务.
 
-```
+```bash
 sudo htpasswd -c /etc/nginx/htpasswd superadmin
-
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
 ```
 
 然后输入类似如下的信息
 
-```
+```console
 Country Name (2 letter code) [AU]:US
 State or Province Name (full name) [Some-State]:New York
 Locality Name (eg, city) []:New York City
@@ -78,7 +76,7 @@ Email Address []:admin@your_domain.com
 
 使用正向加密(Forward secrecy)保证加密通信以及会话不能被检索和解密,详情请看[wiki](https://en.wikipedia.org/wiki/Forward_secrecy)
 
-```
+```bash
 sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
 ```
 
@@ -86,7 +84,7 @@ sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
 
 然后写入以下配置
 
-```
+```nginx
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
